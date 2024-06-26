@@ -3,6 +3,7 @@ var url = "http://localhost:5000/api/Account"
 function enterClick(){
     var email = document.getElementById('floatingInput').value;
     var password = document.getElementById('floatingPassword').value;
+    
     var body = JSON.stringify({
       email : email,
       password: password
@@ -14,6 +15,12 @@ function enterClick(){
     xhr.onload = function () {
       if (xhr.status == 401){
         document.getElementById ("error").style.visibility = "visible"
+      }
+      if (xhr.status == 200){
+        sessionStorage.fio = xhr.responseText;
+        sessionStorage.email = email;
+        sessionStorage.password = password;
+        window.location = "news.html";
       }
     };
     xhr.send(body);

@@ -20,5 +20,10 @@ namespace OnewsApi.Operations
         {
             db.User.Create(user);
         }
+
+        public void UpdateUser(User user)
+        {
+            db.User.Update(user);
+        }
     }
 }

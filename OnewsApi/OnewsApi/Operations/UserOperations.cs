@@ -11,14 +11,14 @@ namespace OnewsApi.Operations
             db = new DbOperations();
         }
 
-        public bool Login(LoginInfo user)
+        public string Login(LoginInfo user)
         {
             var users = db.GetUsers();
             if (users.Where(i => i.Email == user.Email && i.Password == user.Password).Count() == 1)
-            {
-                return true;
+            { 
+                return users.Where(i => i.Email == user.Email && i.Password == user.Password).Single().Name;
             }
-            return false;
+            return "";
         }
 
         public bool Register(User user)
@@ -30,6 +30,20 @@ namespace OnewsApi.Operations
             }
             db.CreateUser(user);
             return true;
+        }
+
+        public User GetInfo(string email)
+        {
+            return db.GetUsers().Where(i => i.Email == email).Single();
+        }
+
+        public void Update(User newUser)
+        {
+            var user = GetInfo(newUser.Email);
+            newUser.Id = user.Id;
+            newUser.Sex = user.Sex;
+            db = new DbOperations();
+            db.UpdateUser(newUser);
         }
     }
 }
