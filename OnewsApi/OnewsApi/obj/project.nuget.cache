@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QUQV+nSg1sWSwfIsA/riY6yBng1D/ESU+OPdZnJzMZd9NSt3U/qJ+/icTuPjTQqy9nFvM2lGSMGLJgGluHOQgg==",
+  "dgSpecHash": "aGzu+vZFN98XCK2Xq88Q1pdBicVXAnAvTi8hAga09FPpStlh3QEmQIZgeiDU1Cj6BDVqdgw4BlvnW+tjWltPpg==",
   "success": true,
-  "projectFilePath": "D:\\PP\\Z\\OnewsApi\\OnewsApi\\OnewsApi.csproj",
+  "projectFilePath": "C:\\Users\\ivans\\Рабочий стол\\onews\\onews\\OnewsApi\\OnewsApi\\OnewsApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ivans\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ivans\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",

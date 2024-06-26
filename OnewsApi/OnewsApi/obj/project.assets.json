@@ -6212,11 +6212,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PP\\Z\\OnewsApi\\OnewsApi\\OnewsApi.csproj",
+      "projectUniqueName": "C:\\Users\\ivans\\Рабочий стол\\onews\\onews\\OnewsApi\\OnewsApi\\OnewsApi.csproj",
       "projectName": "OnewsApi",
-      "projectPath": "D:\\PP\\Z\\OnewsApi\\OnewsApi\\OnewsApi.csproj",
+      "projectPath": "C:\\Users\\ivans\\Рабочий стол\\onews\\onews\\OnewsApi\\OnewsApi\\OnewsApi.csproj",
       "packagesPath": "C:\\Users\\ivans\\.nuget\\packages\\",
-      "outputPath": "D:\\PP\\Z\\OnewsApi\\OnewsApi\\obj\\",
+      "outputPath": "C:\\Users\\ivans\\Рабочий стол\\onews\\onews\\OnewsApi\\OnewsApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
