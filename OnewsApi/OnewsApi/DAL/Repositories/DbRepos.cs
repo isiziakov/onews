@@ -8,6 +8,9 @@ namespace OnewsApi.DAL.Repositories
     {
         private OnewsContext db;
         private UserRepos user;
+        private EventRepos even;
+        private EventStringRepos eventString;
+        private ParticipationRepos participation;
 
         public DbRepos()
         {
@@ -21,6 +24,36 @@ namespace OnewsApi.DAL.Repositories
                 if (user == null)
                     user = new UserRepos(db);
                 return user;
+            }
+        }
+
+        public IRepository<Event> Even
+        {
+            get
+            {
+                if (even == null)
+                    even = new EventRepos(db);
+                return even;
+            }
+        }
+
+        public IRepository<EventString> EventString
+        {
+            get
+            {
+                if (eventString == null)
+                    eventString = new EventStringRepos(db);
+                return eventString;
+            }
+        }
+
+        public IRepository<Participation> Participation
+        {
+            get
+            {
+                if (participation == null)
+                    participation = new ParticipationRepos(db);
+                return participation;
             }
         }
     }

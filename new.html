@@ -10,13 +10,13 @@
     <script src="js/news.js"></script>
 
     <script>
-      window.onload = function() { // можно также использовать window.addEventListener('load', (event) => {
+      window.onload = function() {
         if (window.sessionStorage.getItem('fio') == null){
             window.location = "index.html";
         }
         else{
             document.getElementById('fio').innerHTML = window.sessionStorage.getItem('fio');
-            loadnews();
+            loadevent();
         }
     };
     </script>
@@ -52,8 +52,20 @@
     <div class="h-100 d-flex align-items-center justify-content-center mt-5">
       <div class="col-md-9 page-content">
         <div class="container" id="news">
-          
+            <h1 id="name">Тест</h1>
         </div>
+        <p class="d-flex justify-content-center">
+          <button id="reg" style="visibility: collapse;" class="btn btn-success">Зарегистрироваться</button>
+        </p>
+        <p style="visibility: collapse;" id="adress">Адрес</p>
+        <p style="visibility: collapse;" id="date">Дата</p>
+        <div class="container" id="results" style="visibility: collapse;">
+            <h1>Результаты</h1>
+            <p id="result"></p>
+        </div>
+        <div class="container" id="participants" style="visibility: collapse;">
+          <h1>Участники</h1>
+      </div>
     </div>
     </div>
     

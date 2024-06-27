@@ -17,6 +17,9 @@ namespace OnewsApi
         {
         }
 
+        public virtual DbSet<Event> Events { get; set; }
+        public virtual DbSet<EventString> EventStrings { get; set; }
+        public virtual DbSet<Participation> Participations { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -31,6 +34,61 @@ namespace OnewsApi
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Cyrillic_General_CI_AS");
+
+            modelBuilder.Entity<Event>(entity =>
+            {
+                entity.ToTable("Event");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Adress).HasColumnName("adress");
+
+                entity.Property(e => e.Date)
+                    .HasColumnType("date")
+                    .HasColumnName("date");
+
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasColumnName("description");
+
+                entity.Property(e => e.Image)
+                    .IsRequired()
+                    .HasColumnName("image");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasColumnName("name");
+
+                entity.Property(e => e.Result).HasColumnName("result");
+
+                entity.Property(e => e.Type)
+                    .IsRequired()
+                    .HasColumnName("type");
+            });
+
+            modelBuilder.Entity<EventString>(entity =>
+            {
+                entity.ToTable("EventString");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Event).HasColumnName("event");
+
+                entity.Property(e => e.Image).HasColumnName("image");
+
+                entity.Property(e => e.Text).HasColumnName("text");
+            });
+
+            modelBuilder.Entity<Participation>(entity =>
+            {
+                entity.ToTable("Participation");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.EventId).HasColumnName("eventId");
+
+                entity.Property(e => e.UserId).HasColumnName("userId");
+            });
 
             modelBuilder.Entity<User>(entity =>
             {
