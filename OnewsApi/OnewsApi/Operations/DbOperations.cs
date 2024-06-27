@@ -72,5 +72,17 @@ namespace OnewsApi.Operations
         {
             return db.Participation.GetList().Where(i => i.EventId == id).Select(i => db.User.GetItem(i.UserId)).ToList();
         }
+
+        public List<Event> GetEventsForUser(int id)
+        {
+            var participation = db.Participation.GetList().Where(i => i.UserId == id).ToList();
+            return participation.Select(i => db.Even.GetItem(i.EventId)).Where(i => i.Result == null || i.Result == "").Where(i => i.Date != null && i.Date >= System.DateTime.Now).OrderBy(i => i.Date).ToList();
+        }
+
+        public List<Event> GetPastEventsForUser(int id)
+        {
+            var participation = db.Participation.GetList().Where(i => i.UserId == id).ToList();
+            return participation.Select(i => db.Even.GetItem(i.EventId)).Where(i => i.Result != null && i.Result != "").OrderByDescending(i => i.Date).ToList();
+        }
     }
 }

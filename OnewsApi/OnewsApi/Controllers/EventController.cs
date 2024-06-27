@@ -66,5 +66,21 @@ namespace OnewsApi.Controllers
             DbOperations db = new DbOperations();
             return Ok(db.GetAllReg(id));
         }
+
+        [HttpPost]
+        [Route("api/Event/GetEventsForUser")]
+        public IActionResult GetEventsForUser([FromBody] int id)
+        {
+            DbOperations db = new DbOperations();
+            return Ok(db.GetEventsForUser(id));
+        }
+
+        [HttpPost]
+        [Route("api/Event/GetPastEventsForUser")]
+        public IActionResult GetPastEventsForUser([FromBody] int id)
+        {
+            DbOperations db = new DbOperations();
+            return Ok(db.GetPastEventsForUser(id));
+        }
     }
 }

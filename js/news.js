@@ -50,14 +50,16 @@ function loadevent(){
             document.getElementById ("result").innerHTML = event.Result;
           }
           else{
-            if (user.Type != "Функционер"){
+            if (user.Role != "Функционер"){
                 if (event.Type == "мероприятие"){
                     checkReg();
                 }
             }
-            else{
+            if (user.Role == "Функционер"){
+              if (event.Type == "мероприятие"){
                 loadParticipants();
-            }
+              }
+          }
           }
           if (event.Date != null){
             document.getElementById ("date").style.visibility = "visible";
@@ -200,7 +202,7 @@ function loadParticipants(){
             if (users.length > 0){
                 document.getElementById('participants').style.visibility = "visible";
                 users.forEach(element => {
-                    var newElement = '<p>' + element.name + '</p>';            
+                    var newElement = '<p>' + element.name + ' - ' + element.birthdate.substr(0, 10) + '</p>';            
                     document.getElementById('participants').insertAdjacentHTML( 'beforeend', newElement )
                   });
             }
